@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Bulletin.create(title: "Daily news", content: "Your daily news") 
+Bulletin.create(title: "Yard sale", content: "Yard sale near you")
+Bulletin.create(title: "Covid vaccine update", content: "All about vaccine") 
+
+
