@@ -2,15 +2,17 @@ class BulletinsController < ApplicationController
 
     def index  
       bulletins = Bulletin.all 
-      render json: bulletins
-    end 
+      render json: BulletinSerializer.new(bulletins)
+    end  
 
     def create 
       bulletin = Bulletin.new(bulletin_params) 
 
       if bulletin.save 
-        render json: bulletin 
-      end 
+        render json: BulletinSerializer.new(bulletin)
+      else 
+        render json: { message: 'Bulletin not found' } 
+      end
     end 
 
     def destroy 
