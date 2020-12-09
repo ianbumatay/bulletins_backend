@@ -1,8 +1,9 @@
 class BulletinsController < ApplicationController 
 
     def index  
-      bulletins = Bulletin.all 
-      render json: BulletinSerializer.new(bulletins)
+ 
+      render json: Bulletin.all.map { |bulletins| BulletinSerializer.new(bulletins) }
+      #render json: Post.all.map {|post| PostSerializer.new(post)}
     end  
 
     def create 
@@ -11,12 +12,20 @@ class BulletinsController < ApplicationController
       if bulletin.save 
         render json: BulletinSerializer.new(bulletin)
       else 
-        render json: { message: 'Bulletin not found' } 
+        render json: { message: 'Bulletins not found' } 
       end
     end 
 
     def destroy 
       bulletin = Bulletin.find(params[:id])
       bulletin.destroy 
+    end 
+
+    private 
+
+    def bulletin_params 
+      params.require(:bulletin).permit(:title, :content) 
     end
+
+
 end
