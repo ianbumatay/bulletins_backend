@@ -7,12 +7,13 @@ class BulletinsController < ApplicationController
     end  
 
     def create 
+      #byebug
       bulletin = Bulletin.new(bulletin_params) 
 
       if bulletin.save 
         render json: BulletinSerializer.new(bulletin)
       else 
-        render json: { message: 'Bulletins not found' } 
+        render json: { message: 'Bulletin not found' } 
       end
     end 
 
