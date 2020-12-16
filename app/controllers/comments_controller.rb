@@ -1,12 +1,15 @@
 class CommentsController < ApplicationController 
 
     def index 
-      comments = Comment.all 
-      render json: CommentSerializer.new(comments)
+      render json: Comment.all.map { |comments| CommentSerializer.new(comments) }
+    
+      # comments = Comment.all 
+      # render json: CommentSerializer.new(comments)
     end 
 
     def create 
-      commnent = Comment.new(comment_params) 
+      #byebug
+      comment = Comment.new(comment_params) 
 
       if comment.save 
         render json: CommentSerializer.new(comment)
@@ -23,6 +26,6 @@ class CommentsController < ApplicationController
     private 
 
     def comment_params 
-      params.require(:comment).permit(:content) 
+      params.require(:comment).permit(:content, :bulletin_id) 
     end
 end
