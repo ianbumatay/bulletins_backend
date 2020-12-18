@@ -1,10 +1,10 @@
 class CommentsController < ApplicationController 
 
     def index 
-      render json: Comment.all.map { |comments| CommentSerializer.new(comments) }
+      # render json: Comment.all.map { |comments| CommentSerializer.new(comments) }
     
-      # comments = Comment.all 
-      # render json: CommentSerializer.new(comments)
+      comments = Comment.all 
+      render json: CommentSerializer.new(comments)
     end 
 
     def create 
