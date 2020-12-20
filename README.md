@@ -7,7 +7,7 @@ You can create a bulletins (a short official statement) and add it to your board
 ## Instillation 
 
 ### Frontend Repository. 
- [MIT](https://choosealicense.com/licenses/mit/)
+(https://github.com/ianbumatay/bulletins_frontend)
 
 go to github and clone Repository. 
 
@@ -17,7 +17,7 @@ open index.HTML
 
 
 ### Backend Repository: 
-[MIT](https://choosealicense.com/licenses/mit/)
+(https://github.com/ianbumatay/bulletins_backend)
 
 go to github 
 
